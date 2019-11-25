@@ -56,9 +56,9 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="cards.html">
+        <a class="nav-link" href="apoteker_kelola_supplier.php">
           <i class="fas fa-fw fa-wrench"></i>
-          <span>Kelola Akun</span>
+          <span>Kelola Supplier</span>
         </a>
       </li>
 

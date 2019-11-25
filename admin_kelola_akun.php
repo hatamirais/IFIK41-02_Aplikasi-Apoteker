@@ -14,14 +14,10 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="jquery.tabledit.js"></script>
-  <script type="text/javascript" src="custom_table_edit.js"></script>
 </head>
 
 <body id="page-top">
@@ -33,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="object/apoteker/apoteker_dashboard.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 
@@ -52,7 +48,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="apoteker_kelola_obat.php">
+        <a class="nav-link" href="admin_kelola_obat.php">
           <i class="fas fa-fw fa-cog"></i>
           <span>Kelola Obat</span>
         </a>
@@ -60,9 +56,16 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="apoteker_kelola_supplier.php">
+        <a class="nav-link" href="admin_kelola_supplier.php">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Kelola Supplier</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="admin_kelola_akun.php">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Kelola Akun</span>
         </a>
       </li>
 
@@ -153,7 +156,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -187,7 +190,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Kelola Obat</h1>
+            <h1 class="h3 mb-0 text-gray-800">Kelola Supplier</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Cetak ke Excell</a>
           </div>
 
@@ -207,6 +210,7 @@
 	        }
           ?>
           <br/>
+
           <div class="card shadow mb-">
             <div class="card-header py-3">
               <a class="btn btn-primary" href="form_tambah_obat.php">Tambah Data</a>
@@ -218,41 +222,39 @@
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Jenis</th>
-                    <th>Tanggal Masuk</th>
-                    <th>Tanggal Kadaluarsa</th>
-                    <th>Detail</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Level</th>
                   </tr>
                   <form action="proses_tambah_obat.php" method="POST">
                   <?php
                     include "koneksi.php";
                         $koneksi = mysqli_connect('localhost', 'root', '', 'impal');
 
-                        $query_mysqli = mysqli_query($koneksi, "SELECT * FROM obat")or die(mysqli_error($koneksi));
+                        $query_mysqli = mysqli_query($koneksi, "SELECT * FROM user")or die(mysqli_error($koneksi));
 
                     $nomor = 1;
-                    while($obat_data = mysqli_fetch_array($query_mysqli)){
+                    while($sup_data = mysqli_fetch_array($query_mysqli)){
                     ?>
                     <tr>
                       <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $obat_data['nama']; ?></td>
-                      <td><?php echo $obat_data['jenis']; ?></td>
-                      <td><?php echo $obat_data['tanggal masuk']; ?></td>
-                      <td><?php echo $obat_data['tanggal kadaluarsa']; ?></td>
+                      <td><?php echo $sup_data['nama']; ?></td>
+                      <td><?php echo $sup_data['username']; ?></td>
+                      <td><?php echo $sup_data['password']; ?></td>
+                      <td><?php echo $sup_data['level']; ?></td>
                     </tr>
                     <?php } ?>
                 </table>
                 </div>
               </div>
-              
-            </div>
+         </div>
+
         <!-- /.container-fluid -->
-        
+
       </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

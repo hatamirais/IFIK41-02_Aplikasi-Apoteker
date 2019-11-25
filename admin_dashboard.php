@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../object/admin/admin_dashboard.html">
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 
@@ -48,7 +48,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="buttons.html">
+        <a class="nav-link" href="admin_kelola_obat.php">
           <i class="fas fa-fw fa-cog"></i>
           <span>Kelola Obat</span>
         </a>
@@ -56,7 +56,14 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="cards.html">
+        <a class="nav-link" href="admin_kelola_supplier.php">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Kelola Supplier</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="admin_kelola_akun.php">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Kelola Akun</span>
         </a>

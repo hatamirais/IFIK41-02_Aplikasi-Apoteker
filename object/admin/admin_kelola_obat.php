@@ -33,7 +33,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="object/apoteker/apoteker_dashboard.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 
@@ -52,7 +52,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="apoteker_kelola_obat.php">
+        <a class="nav-link" href="buttons.html">
           <i class="fas fa-fw fa-cog"></i>
           <span>Kelola Obat</span>
         </a>
