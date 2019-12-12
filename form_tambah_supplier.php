@@ -56,9 +56,9 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="apoteker_kelola_supplier.php">
+        <a class="nav-link" href="cards.html">
           <i class="fas fa-fw fa-wrench"></i>
-          <span>Kelola Supplier</span>
+          <span>Kelola Akun</span>
         </a>
       </li>
 
@@ -183,64 +183,41 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Kelola Supplier</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Cetak ke Excell</a>
+            <h1 class="h3 mb-0 text-gray-800">Form Tambah Obat</h1>
           </div>
 
           <!-- Content Row -->
           <div class="row">
-          <br/>
-          <?php 
-	        if(isset($_GET['pesan'])){
-		          $pesan = $_GET['pesan'];
-		          if($pesan == "input"){
-			            echo "Data berhasil di input.";
-	          	}else if($pesan == "update"){
-		            	echo "Data berhasil di update.";
-		          }else if($pesan == "hapus"){
-			            echo "Data berhasil di hapus.";
-		          }
-	        }
-          ?>
-          <br/>
-
-          <div class="card shadow mb-">
+          <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <a class="btn btn-primary" href="form_tambah_supplier.php">Tambah Data</a>
-            </div>
-            <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <form action="proses_tambah_obat.php" method="POST">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Kontak</th>
-                    <th>Alamat</th>
-                    <th>Detail</th>
-                  </tr>
-                  <form action="proses_tambah_obat.php" method="POST">
-                  <?php
-                    include "koneksi.php";
-                        $koneksi = mysqli_connect('localhost', 'root', '', 'impal');
-
-                        $query_mysqli = mysqli_query($koneksi, "SELECT * FROM supplier")or die(mysqli_error($koneksi));
-
-                    $nomor = 1;
-                    while($sup_data = mysqli_fetch_array($query_mysqli)){
-                    ?>
-                    <tr>
-                      <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $sup_data['nama']; ?></td>
-                      <td><?php echo $sup_data['kontak']; ?></td>
-                      <td><?php echo $sup_data['alamat']; ?></td>
-                    </tr>
-                    <?php } ?>
-                </table>
                 </div>
-              </div>
-         </div>
+                <div class="card-body" width=100%>
+                    <form action="proses_tambah_supplier.php" method="POST">
 
+                    <fieldset>
+
+                    <p>
+                        <label for="nama">Nama: </label>
+                        <input type="text" name="nama" placeholder="nama" />
+                    </p>
+                    <p>
+                        <label for="alamat">Alamat: </label>
+                        <input type="text" name="alamat" placeholder="alamat" />
+                    </p>
+                    <p>
+                        <label for="nomor">Nomor Kontak: </label>
+                        <input type="text" name="nomor" placeholder="nomor" />
+                    </p>
+                    <p>
+                        <input type="submit" value="tambah" name="tambah" />
+                    </p>
+
+                    </fieldset>
+
+                    </form>
+                </div>
+            </div>
+         </div>
         <!-- /.container-fluid -->
 
       </div>

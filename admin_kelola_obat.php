@@ -52,7 +52,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="admin_kelola_obat.php">
+        <a class="nav-link" href="/object/admin/admin_kelola_obat.php">
           <i class="fas fa-fw fa-cog"></i>
           <span>Kelola Obat</span>
         </a>

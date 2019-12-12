@@ -18,6 +18,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
@@ -195,22 +196,6 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
-          <br/>
-          <?php 
-	        if(isset($_GET['pesan'])){
-		          $pesan = $_GET['pesan'];
-		          if($pesan == "input"){
-			            echo "Data berhasil di input.";
-	          	}else if($pesan == "update"){
-		            	echo "Data berhasil di update.";
-		          }else if($pesan == "hapus"){
-			            echo "Data berhasil di hapus.";
-		          }
-	        }
-          ?>
-          <br/>
-
           <div class="card shadow mb-">
             <div class="card-header py-3">
               <a class="btn btn-primary" href="form_tambah_obat.php">Tambah Data</a>
@@ -219,34 +204,45 @@
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <form action="proses_tambah_obat.php" method="POST">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Kontak</th>
-                    <th>Alamat</th>
-                    <th>Detail</th>
-                  </tr>
-                  <form action="proses_tambah_obat.php" method="POST">
-                  <?php
-                    include "koneksi.php";
-                        $koneksi = mysqli_connect('localhost', 'root', '', 'impal');
-
-                        $query_mysqli = mysqli_query($koneksi, "SELECT * FROM supplier")or die(mysqli_error($koneksi));
-
-                    $nomor = 1;
-                    while($sup_data = mysqli_fetch_array($query_mysqli)){
-                    ?>
-                    <tr>
-                      <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $sup_data['nama']; ?></td>
-                      <td><?php echo $sup_data['kontak']; ?></td>
-                      <td><?php echo $sup_data['alamat']; ?></td>
-                    </tr>
-                    <?php } ?>
+              <tr>
+  <th>S.no</th>
+  <th>Username</th>
+  <th>Name</th>
+  <th>Name</th>
+ </tr>
+ <?php
+ $connect = mysqli_connect("localhost", "root", "", "impal");
+ $query = "SELECT * FROM supplier ORDER BY nama";
+ $result = mysqli_query($connect, $query);
+ $count = 1;
+ while($row = mysqli_fetch_array($result) ){
+  $id = $row['id'];
+  $nama = $row['nama'];
+  $kontak = $row['kontak'];
+  $alamat = $row['alamat'];
+ ?>
+ <tr>
+  <td><?php echo $count; ?></td>
+  <td> 
+    <div class='edit' > <?php echo $nama; ?></div> 
+    <input type='text' class='txtedit' value='<?php echo $nama; ?>' id='nama_<?php echo $id; ?>' >
+  </td>
+  <td> 
+   <div class='edit' ><?php echo $kontak; ?> </div> 
+   <input type='text' class='txtedit' value='<?php echo $kontak; ?>' id='kontak_<?php echo $id; ?>' >
+  </td>
+  <td> 
+   <div class='edit' ><?php echo $alamat; ?> </div> 
+   <input type='text' class='txtedit' value='<?php echo $alamat; ?>' id='alamat_<?php echo $id; ?>' >
+  </td>
+ </tr>
+ <?php
+ $count ++;
+ }
+ ?> 
                 </table>
                 </div>
               </div>
-         </div>
 
         <!-- /.container-fluid -->
 
@@ -310,6 +306,9 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="jquery.tabledit.min.js"></script>
+  <script src="jquery.tabledit.js"></script>
 </body>
 
 </html>

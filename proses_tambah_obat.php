@@ -8,12 +8,12 @@ if(isset($_POST['tambah'])){
     // ambil data dari formulir
     $nama = $_POST['nama'];
     $jenis = $_POST['jenis'];
-    $tanggal_masuk = $_POST['tanggal masuk'];
-    $tanggal_kadaluarsa = $_POST['tanggal kadaluarsa'];
+    $tgl_masuk = $_POST['tanggal masuk'];
+    $tgl_kadaluarsa = $_POST['tanggal kadaluarsa'];
 
     // buat query
-    if(!empty($nama) && !empty($jenis) && !empty($tanggal_masuk) && !empty($tanggal_kadaluarsa)){
-        $sql = "INSERT INTO obat (nama, jenis, tanggal masuk, tanggal kadaluarsa) VALUES('".$nama."','".$jenis."','".$tanggal_masuk."','".$tanggal_kadaluarsa."')";
+    if(!empty($nama) && !empty($jenis) && !empty($tgl_masuk) && !empty($tgl_kadaluarsa)){
+        $sql = "INSERT INTO obat (nama, jenis, tanggal masuk, tanggal kadaluarsa) VALUES('".$nama."','".$jenis."','".$tgl_masuk."','".$tgl_kadaluarsa."')";
         $simpan = mysqli_query($koneksi, $sql);
         if($simpan && isset($_GET['aksi'])){
           if($_GET['aksi'] == 'create'){
