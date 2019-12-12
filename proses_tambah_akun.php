@@ -49,8 +49,6 @@ if(isset($_POST['tambah'])){
       }
     }
 
-    function hapus($koneksi){
-
       if(isset($_GET['id']) && isset($_GET['aksi'])){
         $id = $_GET['id'];
         $sql_hapus = "DELETE FROM user WHERE id=" . $id;
@@ -63,5 +61,5 @@ if(isset($_POST['tambah'])){
         }
       }
       
-    }
+
     ?>

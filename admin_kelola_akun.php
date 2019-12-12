@@ -245,7 +245,7 @@
                       <td><?php echo $akun_data['level']; ?></td>
                       <td>
                         <a href="form_edit_akun.php?aksi=update&id=<?php echo $akun_data['id']; ?>&nama=<?php echo $akun_data['nama']; ?>&username=<?php echo $akun_data['username']; ?>&password=<?php echo $akun_data['password']; ?>&level=<?php echo $akun_data['level']; ?>">Ubah</a> |
-					              <a href="proses_tambah_akun?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
+					              <a href="proses_tambah_akun.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
                       </td>
                     </tr>
                     <?php } ?>

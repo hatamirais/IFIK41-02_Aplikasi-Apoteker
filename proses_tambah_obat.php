@@ -2,10 +2,10 @@
 
 include("koneksi.php");
 
-// cek apakah tombol daftar sudah diklik atau blum?
+//add
 if(isset($_POST['tambah'])){
 
-    // ambil data dari formulir
+    
     $nama = $_POST['nama'];
     $jenis = $_POST['jenis'];
     $tgl_masuk = $_POST['tanggal masuk'];
@@ -31,6 +31,7 @@ if(isset($_POST['tambah'])){
     die("Akses dilarang...");
 }
 
+//edit
 if(isset($_POST['btn_ubah'])){
   $id = $_POST['id'];
   $nama = $_POST['nama'];

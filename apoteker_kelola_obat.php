@@ -244,8 +244,8 @@
                       <td><?php echo $obat_data['jumlah']; ?></td>
                       <td><?php echo $obat_data['harga']; ?></td>
                       <td>
-                        <a href="index.php?aksi=update&id=<?php echo $data['id']; ?>&nama=<?php echo $data['nama_tanaman']; ?>&hasil=<?php echo $data['hasil_panen']; ?>&lama=<?php echo $data['lama_tanam']; ?>&tanggal=<?php echo $data['tanggal_panen']; ?>">Ubah</a> |
-					              <a href="index.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
+                      <a href="form_edit_obat.php?aksi=update&id=<?php echo $obat_data['id']; ?>&nama=<?php echo $obat_data['nama']; ?>&jenis=<?php echo $obat_data['jenis']; ?>&tanggal masuk=<?php echo $obat_data['tanggal masuk']; ?>&tanggal kadaluarsa=<?php echo $obat_data['tanggal kadaluarsa'];?>&jumlah=<?php echo $obat_data['jumlah'] ?>&harga=<?php echo $obat_data['harga']?>">Ubah</a> |
+					              <a href="apoteker_kelola_obat.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
                       </td>
                     </tr>
                     <?php } ?>

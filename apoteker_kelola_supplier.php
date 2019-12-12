@@ -227,16 +227,16 @@
                         $query_mysqli = mysqli_query($koneksi, "SELECT * FROM supplier")or die(mysqli_error($koneksi));
 
                     $nomor = 1;
-                    while($sup_data = mysqli_fetch_array($query_mysqli)){
+                    while($supplier_data = mysqli_fetch_array($query_mysqli)){
                     ?>
                     <tr>
                       <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $sup_data['nama']; ?></td>
-                      <td><?php echo $sup_data['kontak']; ?></td>
-                      <td><?php echo $sup_data['alamat']; ?></td>
+                      <td><?php echo $supplier_data['nama']; ?></td>
+                      <td><?php echo $supplier_data['kontak']; ?></td>
+                      <td><?php echo $supplier_data['alamat']; ?></td>
                       <td>
-                        <a href="index.php?aksi=update&id=<?php echo $data['id']; ?>&nama=<?php echo $data['nama_tanaman']; ?>&hasil=<?php echo $data['hasil_panen']; ?>&lama=<?php echo $data['lama_tanam']; ?>&tanggal=<?php echo $data['tanggal_panen']; ?>">Ubah</a> |
-					              <a href="index.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
+                        <a href="form_edit_supplier.php?aksi=update&id=<?php echo $supplier_data['id']; ?>&nama=<?php echo $supplier_data['nama']; ?>&kontak=<?php echo $supplier_data['kontak']; ?>&alamat=<?php echo $supplier_data['alamat'];?>">Ubah</a> |
+					              <a href="proses_tambah_supplier?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
                       </td>
                     </tr>
                     <?php } ?>

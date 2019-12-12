@@ -2,15 +2,13 @@
 
 include("koneksi.php");
 
-// cek apakah tombol daftar sudah diklik atau blum?
+//add
 if(isset($_POST['tambah'])){
 
-    // ambil data dari formulir
     if(isset($_POST['nama'])){ $nama = $_POST['nama']; }
     if(isset($_POST['alamat'])){ $kontak = $_POST['kontak']; }
     if(isset($_POST['kontak'])){ $alamat = $_POST['alamat']; }
 
-    // buat query
     if(!empty($nama) && !empty($kontak) && !empty($alamat)){
         $sql = "INSERT INTO supplier (nama, kontak, alamat) VALUES('".$nama."','".$kontak."','".$alamat."')";
         $simpan = mysqli_query($koneksi, $sql);
@@ -28,6 +26,7 @@ if(isset($_POST['tambah'])){
     die("Akses dilarang...");
 }
 
+//edit
 if(isset($_POST['btn_ubah'])){
   $id = $_POST['id'];
   $nama = $_POST['nama'];
@@ -48,6 +47,7 @@ if(isset($_POST['btn_ubah'])){
   }
 }
 
+//delete
 function hapus($koneksi){
 
   if(isset($_GET['id']) && isset($_GET['aksi'])){
