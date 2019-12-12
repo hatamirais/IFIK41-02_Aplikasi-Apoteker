@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Nov 2019 pada 01.04
+-- Waktu pembuatan: 13 Des 2019 pada 00.50
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.8
 
@@ -32,17 +32,41 @@ CREATE TABLE `obat` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `jenis` varchar(255) NOT NULL,
-  `tanggal masuk` datetime NOT NULL,
-  `tanggal kadaluarsa` date NOT NULL
+  `tanggal masuk` date NOT NULL,
+  `tanggal kadaluarsa` date NOT NULL,
+  `jumlah` varchar(255) DEFAULT NULL,
+  `harga` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `obat`
 --
 
-INSERT INTO `obat` (`id`, `nama`, `jenis`, `tanggal masuk`, `tanggal kadaluarsa`) VALUES
-(1, 'Paramex', 'Acetaminophen', '2019-11-19 08:20:00', '2020-02-05'),
-(2, 'Oskadon', 'Acetaminophen', '2019-11-19 08:20:00', '2020-02-05');
+INSERT INTO `obat` (`id`, `nama`, `jenis`, `tanggal masuk`, `tanggal kadaluarsa`, `jumlah`, `harga`) VALUES
+(1, 'Paramex', 'Acetaminophen', '2019-11-19', '2020-02-05', '100', '5000'),
+(2, 'Oskadon', 'Acetaminophen', '2019-11-19', '2020-02-05', '100', '5000');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `kontak` varchar(24) NOT NULL,
+  `alamat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `supplier`
+--
+
+INSERT INTO `supplier` (`id`, `nama`, `kontak`, `alamat`) VALUES
+(1, 'Trusted Drug Seller', '+1555222', 'Silicon Valey, California'),
+(2, 'Semi Trusted Drug Seller', '+62811112222', 'Blackmarket'),
+(1576086612, 'adad', '121212', 'adada');
 
 -- --------------------------------------------------------
 
@@ -64,7 +88,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nama`, `username`, `password`, `level`) VALUES
 (1, 'ayaya', 'ayaya', 'uWu123', 'admin'),
-(2, 'fulan', 'fulan', 'fulan123', 'apoteker');
+(2, 'fulan', 'fulan', 'fulan123', 'apoteker'),
+(7, 'ultramen', 'ultra', 'lemon', 'apoteker');
 
 --
 -- Indexes for dumped tables
@@ -74,6 +99,12 @@ INSERT INTO `user` (`id`, `nama`, `username`, `password`, `level`) VALUES
 -- Indeks untuk tabel `obat`
 --
 ALTER TABLE `obat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `supplier`
+--
+ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -90,13 +121,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1576086613;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
