@@ -213,20 +213,21 @@
 
           <div class="card shadow mb-">
             <div class="card-header py-3">
-              <a class="btn btn-primary" href="form_tambah_obat.php">Tambah Data</a>
+              <a class="btn btn-primary" href="form_tambah_akun.php">Tambah Data</a>
             </div>
             <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <form action="proses_tambah_obat.php" method="POST">
+              <form action="proses_tambah_akun.php" method="POST">
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
                     <th>Username</th>
                     <th>Password</th>
                     <th>Level</th>
+                    <th>Detail</th>
                   </tr>
-                  <form action="proses_tambah_obat.php" method="POST">
+                  <form action="proses_tambah_akun.php" method="POST">
                   <?php
                     include "koneksi.php";
                         $koneksi = mysqli_connect('localhost', 'root', '', 'impal');
@@ -234,14 +235,18 @@
                         $query_mysqli = mysqli_query($koneksi, "SELECT * FROM user")or die(mysqli_error($koneksi));
 
                     $nomor = 1;
-                    while($sup_data = mysqli_fetch_array($query_mysqli)){
+                    while($akun_data = mysqli_fetch_array($query_mysqli)){
                     ?>
                     <tr>
                       <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $sup_data['nama']; ?></td>
-                      <td><?php echo $sup_data['username']; ?></td>
-                      <td><?php echo $sup_data['password']; ?></td>
-                      <td><?php echo $sup_data['level']; ?></td>
+                      <td><?php echo $akun_data['nama']; ?></td>
+                      <td><?php echo $akun_data['username']; ?></td>
+                      <td><?php echo $akun_data['password']; ?></td>
+                      <td><?php echo $akun_data['level']; ?></td>
+                      <td>
+                        <a href="form_edit_akun.php?aksi=update&id=<?php echo $akun_data['id']; ?>&nama=<?php echo $akun_data['nama']; ?>&username=<?php echo $akun_data['username']; ?>&password=<?php echo $akun_data['password']; ?>&level=<?php echo $akun_data['level']; ?>">Ubah</a> |
+					              <a href="proses_tambah_akun?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
+                      </td>
                     </tr>
                     <?php } ?>
                 </table>

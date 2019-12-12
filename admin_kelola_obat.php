@@ -228,6 +228,8 @@
                     <th>Jenis</th>
                     <th>Tanggal Masuk</th>
                     <th>Tanggal Kadaluarsa</th>
+                    <th>Jumlah</th>
+                    <th>Harga Satuan</th>
                     <th>Detail</th>
                   </tr>
                   <form action="proses_tambah_obat.php" method="POST">
@@ -246,6 +248,12 @@
                       <td><?php echo $obat_data['jenis']; ?></td>
                       <td><?php echo $obat_data['tanggal masuk']; ?></td>
                       <td><?php echo $obat_data['tanggal kadaluarsa']; ?></td>
+                      <td><?php echo $obat_data['jumlah']; ?></td>
+                      <td><?php echo $obat_data['harga']; ?></td>
+                      <td>
+                        <a href="form_edit_obat.php?aksi=update&id=<?php echo $obat_data['id']; ?>&nama=<?php echo $obat_data['nama']; ?>&jenis=<?php echo $obat_data['jenis']; ?>&tanggal masuk=<?php echo $obat_data['tanggal masuk']; ?>&tanggal kadaluarsa=<?php echo $obat_data['tanggal kadaluarsa'];?>&jumlah=<?php echo $obat_data['jumlah'] ?>&harga=<?php echo $obat_data['harga']?>">Ubah</a> |
+					              <a href="admin_kelola_obat.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
+                      </td>
                     </tr>
                     <?php } ?>
                 </table>

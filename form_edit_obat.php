@@ -14,14 +14,10 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="jquery.tabledit.js"></script>
-  <script type="text/javascript" src="custom_table_edit.js"></script>
 </head>
 
 <body id="page-top">
@@ -33,47 +29,16 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="apoteker_dashboard.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="apoteker_dashboard.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="apoteker_kelola_obat.php">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Kelola Obat</span>
-        </a>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="apoteker_kelola_supplier.php">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Kelola Supplier</span>
-        </a>
-      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+
 
     </ul>
     <!-- End of Sidebar -->
@@ -153,7 +118,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -187,80 +152,57 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Kelola Obat</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Cetak ke Excell</a>
+            <h1 class="h3 mb-0 text-gray-800">Form Tambah Obat</h1>
           </div>
 
           <!-- Content Row -->
           <div class="row">
-          <br/>
-          <?php 
-	        if(isset($_GET['pesan'])){
-		          $pesan = $_GET['pesan'];
-		          if($pesan == "input"){
-			            echo "Data berhasil di input.";
-	          	}else if($pesan == "update"){
-		            	echo "Data berhasil di update.";
-		          }else if($pesan == "hapus"){
-			            echo "Data berhasil di hapus.";
-		          }
-	        }
-          ?>
-          <br/>
-          <div class="card shadow mb-">
+          <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <a class="btn btn-primary" href="form_tambah_obat.php">Tambah Data</a>
-            </div>
-            <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <form action="proses_tambah_obat.php" method="POST">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Jenis</th>
-                    <th>Tanggal Masuk</th>
-                    <th>Tanggal Kadaluarsa</th>
-                    <th>Jumlah</th>
-                    <th>Harga</th>
-                    <th>Detail</th>
-                  </tr>
-                  <form action="proses_tambah_obat.php" method="POST">
-                  <?php
-                    include "koneksi.php";
-                        $koneksi = mysqli_connect('localhost', 'root', '', 'impal');
-
-                        $query_mysqli = mysqli_query($koneksi, "SELECT * FROM obat")or die(mysqli_error($koneksi));
-
-                    $nomor = 1;
-                    while($obat_data = mysqli_fetch_array($query_mysqli)){
-                    ?>
-                    <tr>
-                      <td><?php echo $nomor++; ?></td>
-                      <td><?php echo $obat_data['nama']; ?></td>
-                      <td><?php echo $obat_data['jenis']; ?></td>
-                      <td><?php echo $obat_data['tanggal masuk']; ?></td>
-                      <td><?php echo $obat_data['tanggal kadaluarsa']; ?></td>
-                      <td><?php echo $obat_data['jumlah']; ?></td>
-                      <td><?php echo $obat_data['harga']; ?></td>
-                      <td>
-                        <a href="index.php?aksi=update&id=<?php echo $data['id']; ?>&nama=<?php echo $data['nama_tanaman']; ?>&hasil=<?php echo $data['hasil_panen']; ?>&lama=<?php echo $data['lama_tanam']; ?>&tanggal=<?php echo $data['tanggal_panen']; ?>">Ubah</a> |
-					              <a href="index.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
-                      </td>
-                    </tr>
-                    <?php } ?>
-                </table>
                 </div>
-              </div>
-              
+                <div class="card-body" width=100%>
+                    <form action="proses_tambah_akun.php" method="POST">
+
+                    <?php
+                    if(isset($_GET['id'])){
+                        ?>
+                            <a href="admin_kelola_obat.php"> &laquo; Home</a> | 
+                            <a href="admin_tambah_obat.php?aksi=create"> (+) Tambah Data</a>
+                            <hr>
+                            
+                            <form action="" method="POST">
+                            <fieldset>
+                                <legend><h2>Ubah data</h2></legend>
+                                <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>"/>
+                                <label>Nama <input type="text" name="nama" value="<?php echo $_GET['nama'] ?>"/></label> <br>
+                                <label>Jenis <input type="text" name="jenis" value="<?php echo $_GET['jenis'] ?>"/> </label><br>
+                                <label>Tanggal Masuk <input type="date" name="tanggal masuk" value="<?php echo $_GET['tanggal masuk'] ?>"/></label> <br>
+                                <label>Tanggal Kadaluarsa <input type="date" name="tanggal kadaluarasa" value="<?php echo $_GET['tanggal kadaluarsa'] ?>"/></label> <br>
+                                <label>Jumlah <input type="text" name="jumlah" value="<?php echo $_GET['jumlah'] ?>"/></label> <br>
+                                <label>Harga <input type="text" name="harga" value="<?php echo $_GET['harga'] ?>"/></label> <br>
+                                <br>
+                                <label>
+                                    <input type="submit" name="btn_ubah" value="Simpan Perubahan"/> atau <a href="admin_kelola_obat.php?aksi=delete&id=<?php echo $_GET['id'] ?>"> (x) Hapus data ini</a>!
+                                </label>
+                                <br>
+                                <p><?php echo isset($pesan) ? $pesan : "" ?></p>
+                                
+                            </fieldset>
+                            </form>
+                        <?php
+                    }
+                    ?>
+
+                    </form>
+                </div>
             </div>
+         </div>
         <!-- /.container-fluid -->
-        
+
       </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

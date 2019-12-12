@@ -211,7 +211,7 @@
             <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <form action="proses_tambah_obat.php" method="POST">
+              <form action="proses_tambah_supplier.php" method="POST">
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
@@ -219,7 +219,7 @@
                     <th>Alamat</th>
                     <th>Detail</th>
                   </tr>
-                  <form action="proses_tambah_obat.php" method="POST">
+                  <form action="proses_tambah_supplier.php" method="POST">
                   <?php
                     include "koneksi.php";
                         $koneksi = mysqli_connect('localhost', 'root', '', 'impal');
@@ -234,6 +234,10 @@
                       <td><?php echo $sup_data['nama']; ?></td>
                       <td><?php echo $sup_data['kontak']; ?></td>
                       <td><?php echo $sup_data['alamat']; ?></td>
+                      <td>
+                        <a href="index.php?aksi=update&id=<?php echo $data['id']; ?>&nama=<?php echo $data['nama_tanaman']; ?>&hasil=<?php echo $data['hasil_panen']; ?>&lama=<?php echo $data['lama_tanam']; ?>&tanggal=<?php echo $data['tanggal_panen']; ?>">Ubah</a> |
+					              <a href="index.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
+                      </td>
                     </tr>
                     <?php } ?>
                 </table>

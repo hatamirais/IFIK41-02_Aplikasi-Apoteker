@@ -10,10 +10,12 @@ if(isset($_POST['tambah'])){
     $jenis = $_POST['jenis'];
     $tgl_masuk = $_POST['tanggal masuk'];
     $tgl_kadaluarsa = $_POST['tanggal kadaluarsa'];
+    $jumlah = $_POST('jumlah');
+    $harga = $_POST('harga');
 
     // buat query
-    if(!empty($nama) && !empty($jenis) && !empty($tgl_masuk) && !empty($tgl_kadaluarsa)){
-        $sql = "INSERT INTO obat (nama, jenis, tanggal masuk, tanggal kadaluarsa) VALUES('".$nama."','".$jenis."','".$tgl_masuk."','".$tgl_kadaluarsa."')";
+    if(!empty($nama) && !empty($jenis) && !empty($tgl_masuk) && !empty($tgl_kadaluarsa) && !empty($jumlah)){
+        $sql = "INSERT INTO obat (nama, jenis, tanggal masuk, tanggal kadaluarsa, jumlah, harga) VALUES('".$nama."','".$jenis."','".$tgl_masuk."','".$tgl_kadaluarsa."','".$jumlah."')";
         $simpan = mysqli_query($koneksi, $sql);
         if($simpan && isset($_GET['aksi'])){
           if($_GET['aksi'] == 'create'){
@@ -29,4 +31,26 @@ if(isset($_POST['tambah'])){
     die("Akses dilarang...");
 }
 
+if(isset($_POST['btn_ubah'])){
+  $id = $_POST['id'];
+  $nama = $_POST['nama'];
+  $jenis = $_POST['jenis'];
+  $tanggal_masuk = $_POST['tanggal masuk'];
+  $tanggal_kadaluarsa = $_POST['tanggal kadaluarsa'];
+  $jumlah = $_POST['jumlah'];
+  $harga = $_POST['harga'];
+  
+  if(!empty($nama) && !empty($jenis) && !empty($tanggal_masuk) && !empty($tanggal_kadaluarsa) && !empty($jumlah) && !empty($harga)){
+    $perubahan = "nama='".$nama."',jenis=".$jenis.",tanggal masuk=".$tanggal_masuk.",tanggal kadaluarsa='".$tanggal_kadaluara.",jumlah='$jumlah";
+    $sql_update = "UPDATE obat SET ".$perubahan." WHERE id=$id";
+    $update = mysqli_query($koneksi, $sql_update);
+    if($update && isset($_GET['aksi'])){
+      if($_GET['aksi'] == 'update'){
+        header('location: admin_kelola_akun.php');
+      }
+    }
+  } else {
+    $pesan = "Data tidak lengkap!";
+  }
+}
 ?>

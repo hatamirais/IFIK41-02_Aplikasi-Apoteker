@@ -33,43 +33,12 @@
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="apoteker_dashboard.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="apoteker_kelola_obat.php">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Kelola Obat</span>
-        </a>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="cards.html">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Kelola Akun</span>
-        </a>
-      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+
 
     </ul>
     <!-- End of Sidebar -->
@@ -211,6 +180,14 @@
                     <p>
                         <label for="tanggal masuk">Tanggal Kadaluarsa: </label>
                         <input type="date" name="dateTo" value="<?php echo date('Y-m-d'); ?>" />
+                    </p>
+                    <p>
+                        <label for="tanggal masuk">Jumlah: </label>
+                        <input type="text" name="jumlah"  placeholder="Jenis Obat" />
+                    </p>
+                    <p>
+                        <label for="tanggal masuk">Harga Satuan: </label>
+                        <input type="text" name="harga"  placeholder="Harga Obat" />
                     </p>
                     <p>
                         <input type="submit" value="tambah" name="tambah" />

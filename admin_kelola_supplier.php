@@ -190,60 +190,70 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
+
+          <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Kelola Supplier</h1>
+            <h1 class="h3 mb-0 text-gray-800">Kelola Obat</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Cetak ke Excell</a>
           </div>
 
           <!-- Content Row -->
+          <div class="row">
+          <br/>
+          <?php 
+	        if(isset($_GET['pesan'])){
+		          $pesan = $_GET['pesan'];
+		          if($pesan == "input"){
+			            echo "Data berhasil di input.";
+	          	}else if($pesan == "update"){
+		            	echo "Data berhasil di update.";
+		          }else if($pesan == "hapus"){
+			            echo "Data berhasil di hapus.";
+		          }
+	        }
+          ?>
+          <br/>
           <div class="card shadow mb-">
             <div class="card-header py-3">
-              <a class="btn btn-primary" href="form_tambah_obat.php">Tambah Data</a>
+              <a class="btn btn-primary" href="form_tambah_supplier.php">Tambah Data</a>
             </div>
             <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <form action="proses_tambah_obat.php" method="POST">
-              <tr>
-  <th>S.no</th>
-  <th>Username</th>
-  <th>Name</th>
-  <th>Name</th>
- </tr>
- <?php
- $connect = mysqli_connect("localhost", "root", "", "impal");
- $query = "SELECT * FROM supplier ORDER BY nama";
- $result = mysqli_query($connect, $query);
- $count = 1;
- while($row = mysqli_fetch_array($result) ){
-  $id = $row['id'];
-  $nama = $row['nama'];
-  $kontak = $row['kontak'];
-  $alamat = $row['alamat'];
- ?>
- <tr>
-  <td><?php echo $count; ?></td>
-  <td> 
-    <div class='edit' > <?php echo $nama; ?></div> 
-    <input type='text' class='txtedit' value='<?php echo $nama; ?>' id='nama_<?php echo $id; ?>' >
-  </td>
-  <td> 
-   <div class='edit' ><?php echo $kontak; ?> </div> 
-   <input type='text' class='txtedit' value='<?php echo $kontak; ?>' id='kontak_<?php echo $id; ?>' >
-  </td>
-  <td> 
-   <div class='edit' ><?php echo $alamat; ?> </div> 
-   <input type='text' class='txtedit' value='<?php echo $alamat; ?>' id='alamat_<?php echo $id; ?>' >
-  </td>
- </tr>
- <?php
- $count ++;
- }
- ?> 
+              <form action="proses_tambah_supplier.php" method="POST">
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Kontak</th>
+                    <th>Detail</th>
+                  </tr>
+                  <form action="proses_tambah_supplier.php" method="POST">
+                  <?php
+                    include "koneksi.php";
+                        $koneksi = mysqli_connect('localhost', 'root', '', 'impal');
+
+                        $query_mysqli = mysqli_query($koneksi, "SELECT * FROM supplier")or die(mysqli_error($koneksi));
+
+                    $nomor = 1;
+                    while($supplier_data = mysqli_fetch_array($query_mysqli)){
+                    ?>
+                    <tr>
+                      <td><?php echo $nomor++; ?></td>
+                      <td><?php echo $supplier_data['nama']; ?></td>
+                      <td><?php echo $supplier_data['alamat']; ?></td>
+                      <td><?php echo $supplier_data['kontak']; ?></td>
+                      <td>
+                        <a href="form_edit_supplier.php?aksi=update&id=<?php echo $supplier_data['id']; ?>&nama=<?php echo $supplier_data['nama']; ?>&kontak=<?php echo $supplier_data['kontak']; ?>&alamat=<?php echo $supplier_data['alamat'];?>">Ubah</a> |
+					              <a href="admin_kelola_supplier.php?aksi=delete&id=<?php echo $data['id']; ?>">Hapus</a>
+                      </td>
+                    </tr>
+                    <?php } ?>
                 </table>
                 </div>
               </div>
-
+              
+            </div>
         <!-- /.container-fluid -->
 
       </div>

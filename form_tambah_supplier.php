@@ -36,40 +36,7 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="apoteker_dashboard.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="apoteker_kelola_obat.php">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Kelola Obat</span>
-        </a>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="cards.html">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Kelola Akun</span>
-        </a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
 
     </ul>
     <!-- End of Sidebar -->
@@ -183,7 +150,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Form Tambah Obat</h1>
+            <h1 class="h3 mb-0 text-gray-800">Form Tambah Supplier</h1>
           </div>
 
           <!-- Content Row -->
@@ -201,12 +168,12 @@
                         <input type="text" name="nama" placeholder="nama" />
                     </p>
                     <p>
-                        <label for="alamat">Alamat: </label>
-                        <input type="text" name="alamat" placeholder="alamat" />
+                        <label for="kontak">Nomor Kontak: </label>
+                        <input type="text" name="kontak" placeholder="kontak" />
                     </p>
                     <p>
-                        <label for="nomor">Nomor Kontak: </label>
-                        <input type="text" name="nomor" placeholder="nomor" />
+                        <label for="alamat">Alamat: </label>
+                        <input type="text" name="alamat" placeholder="alamat" />
                     </p>
                     <p>
                         <input type="submit" value="tambah" name="tambah" />
