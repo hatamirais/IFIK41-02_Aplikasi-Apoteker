@@ -36,3 +36,18 @@ end
 query
 
 select * from user where username='$username' and password='$password' - mencari level username dan password yang sesuai dengan inputan
+
+query proses_akun
+- INSERT INTO user (nama, username, password, level) VALUES('".$nama."','".$username."','".$password."','".$level."')"; - tambah akun sebagai admin
+- UPDATE user SET ".$perubahan." WHERE id=$id"; - edit akun sebagai admin
+- DELETE FROM user WHERE id=" . $id; - delete akun sebagai admin
+
+query proses_obat
+- INSERT INTO obat (nama, jenis, tanggal masuk, tanggal kadaluarsa, jumlah, harga) VALUES('".$nama."','".$jenis."','".$tgl_masuk."','".$tgl_kadaluarsa."','".$jumlah."')"; - tambah obat sebagai admin dan apoteker
+- UPDATE obat SET ".$perubahan." WHERE id=$id"; - edit obat sebagai admin dan apoteker
+- DELETE FROM obat WHERE id=" . $id; - delete obat sebagai admin dan apoteker
+
+query proses_supplier
+- INSERT INTO supplier (nama, kontak, alamat) VALUES('".$nama."','".$kontak."','".$alamat."')"; - tambah supplier sebagai admin dan apoteker
+- UPDATE user SET ".$perubahan." WHERE id=$id"; - edit supplier sebagai admin dan apoteker
+- DELETE FROM supplier WHERE id=" . $id; - delete supplier sebagai admin dan apoteker
