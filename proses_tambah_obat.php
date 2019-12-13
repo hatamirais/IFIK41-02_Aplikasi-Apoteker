@@ -47,11 +47,23 @@ if(isset($_POST['btn_ubah'])){
     $update = mysqli_query($koneksi, $sql_update);
     if($update && isset($_GET['aksi'])){
       if($_GET['aksi'] == 'update'){
-        header('location: admin_kelola_akun.php');
+        header('location: admin_kelola_obat.php');
       }
     }
   } else {
     $pesan = "Data tidak lengkap!";
+  }
+}
+
+if(isset($_GET['id']) && isset($_GET['aksi'])){
+  $id = $_GET['id'];
+  $sql_hapus = "DELETE FROM obat WHERE id=" . $id;
+  $hapus = mysqli_query($koneksi, $sql_hapus);
+  
+  if($hapus){
+    if($_GET['aksi'] == 'delete'){
+      header('location: admin_kelola_obat.php');
+    }
   }
 }
 ?>

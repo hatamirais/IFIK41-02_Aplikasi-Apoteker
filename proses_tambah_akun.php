@@ -2,16 +2,16 @@
 
 include("koneksi.php");
 
-// cek apakah tombol daftar sudah diklik atau blum?
+//add
 if(isset($_POST['tambah'])){
 
-    // ambil data dari formulir
+
     $nama = $_POST['nama'];
     $username = $_POST['username'];
     $password = $_POST['password'];
     $level = $_POST['level'];
 
-    // buat query
+
     if(!empty($nama) && !empty($username) && !empty($password) && !empty($level)){
         $sql = "INSERT INTO user (nama, username, password, level) VALUES('".$nama."','".$username."','".$password."','".$level."')";
         $simpan = mysqli_query($koneksi, $sql);
@@ -28,6 +28,7 @@ if(isset($_POST['tambah'])){
     die("Akses dilarang...");
     }
 
+    //edit
     if(isset($_POST['btn_ubah'])){
       $id = $_POST['id'];
       $nama = $_POST['nama'];
@@ -49,6 +50,7 @@ if(isset($_POST['tambah'])){
       }
     }
 
+    //delete
       if(isset($_GET['id']) && isset($_GET['aksi'])){
         $id = $_GET['id'];
         $sql_hapus = "DELETE FROM user WHERE id=" . $id;

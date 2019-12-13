@@ -39,7 +39,7 @@ if(isset($_POST['btn_ubah'])){
     $update = mysqli_query($koneksi, $sql_update);
     if($update && isset($_GET['aksi'])){
       if($_GET['aksi'] == 'update'){
-        header('location: admin_kelola_akun.php');
+        header('location: admin_kelola_supplier.php');
       }
     }
   } else {
@@ -57,7 +57,7 @@ function hapus($koneksi){
     
     if($hapus){
       if($_GET['aksi'] == 'delete'){
-        header('location: admin_kelola_akun.php');
+        header('location: admin_kelola_supplier.php');
       }
     }
   }
