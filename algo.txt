@@ -1,0 +1,38 @@
+Nama Kelas      :Halaman Login
+Nama Operasi    :Login
+Algoritma       :Algo-001
+
+Username = input
+Password = input
+
+include function cek_login
+    type username
+    type password
+
+    if (username && password != db)
+        alert'>Username dan Password tidak sesuai! Hubungi admin!
+    else
+        run cek_login
+end
+
+
+Nama Sub Kelas  :Periksa Tipe Login
+Nama Operasi    :cek login
+Algoritma       :Algo-002
+
+select * from user where username='$username' and password='$password'
+    if(level = admin)
+        begin
+            session = username as admin
+            show admin_dashboard
+        end
+        else if (level = apoteker)
+         begin
+            session = username as apoteker
+            show apoteker_dashboard
+        end
+end
+
+query
+
+select * from user where username='$username' and password='$password' - mencari level username dan password yang sesuai dengan inputan
