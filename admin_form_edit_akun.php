@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="apoteker_dashboard.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 
@@ -161,12 +161,11 @@
             <div class="card-header py-3">
                 </div>
                 <div class="card-body" width=100%>
-                    <form action="proses_tambah_supplier.php" method="POST">
+                    <form action="proses_tambah_akun.php" method="POST">
 
                     <?php
                     if(isset($_GET['id'])){
                         ?>
-                            <a href="form_edit_supplier.php?aksi=create"> (+) Tambah Data</a>
                             <hr>
                             
                             <form action="" method="POST">
@@ -174,9 +173,9 @@
                                 <legend><h2>Ubah data</h2></legend>
                                 <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>"/>
                                 <label>Nama <input type="text" name="nama" value="<?php echo $_GET['nama'] ?>"/></label> <br>
-                                <label>Alamat <input type="text" name="kontak" value="<?php echo $_GET['kontak'] ?>"/> </label><br>
-                                <label>kontak <input type="text" name="alamat" value="<?php echo $_GET['alamat'] ?>"/> </label> <br>
-                                
+                                <label>Username <input type="text" name="username" value="<?php echo $_GET['username'] ?>"/> </label><br>
+                                <label>Password <input type="text" name="password" value="<?php echo $_GET['password'] ?>"/> </label> <br>
+                                <label>Level <input type="text" name="level" value="<?php echo $_GET['level'] ?>"/></label> <br>
                                 <br>
                                 <label>
                                     <input type="submit" name="btn_ubah" value="Simpan Perubahan"/> atau <a href="admin_kelola_akun.php?aksi=delete&id=<?php echo $_GET['id'] ?>"> (x) Hapus data ini</a>!

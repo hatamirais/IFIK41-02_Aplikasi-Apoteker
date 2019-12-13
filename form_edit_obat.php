@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="apoteker_dashboard.php">
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 

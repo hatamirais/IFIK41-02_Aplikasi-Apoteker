@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="apoteker_dashboard.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 
@@ -166,7 +166,7 @@
                     <?php
                     if(isset($_GET['id'])){
                         ?>
-                            <a href="form_edit_supplier.php?aksi=create"> (+) Tambah Data</a>
+                            <a href="admin_form_edit_supplier.php?aksi=create"> (+) Tambah Data</a>
                             <hr>
                             
                             <form action="" method="POST">

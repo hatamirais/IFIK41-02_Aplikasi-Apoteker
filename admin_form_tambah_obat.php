@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="apoteker_dashboard.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin_dashboard.php">
         <div class="sidebar-brand-text mx-3">Aplikasi Apotek</div>
       </a>
 
@@ -161,34 +161,39 @@
             <div class="card-header py-3">
                 </div>
                 <div class="card-body" width=100%>
-                    <form action="proses_tambah_supplier.php" method="POST">
+                    <form action="proses_tambah_obat.php" method="POST">
 
-                    <?php
-                    if(isset($_GET['id'])){
-                        ?>
-                            <a href="form_edit_supplier.php?aksi=create"> (+) Tambah Data</a>
-                            <hr>
-                            
-                            <form action="" method="POST">
-                            <fieldset>
-                                <legend><h2>Ubah data</h2></legend>
-                                <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>"/>
-                                <label>Nama <input type="text" name="nama" value="<?php echo $_GET['nama'] ?>"/></label> <br>
-                                <label>Alamat <input type="text" name="kontak" value="<?php echo $_GET['kontak'] ?>"/> </label><br>
-                                <label>kontak <input type="text" name="alamat" value="<?php echo $_GET['alamat'] ?>"/> </label> <br>
-                                
-                                <br>
-                                <label>
-                                    <input type="submit" name="btn_ubah" value="Simpan Perubahan"/> atau <a href="admin_kelola_akun.php?aksi=delete&id=<?php echo $_GET['id'] ?>"> (x) Hapus data ini</a>!
-                                </label>
-                                <br>
-                                <p><?php echo isset($pesan) ? $pesan : "" ?></p>
-                                
-                            </fieldset>
-                            </form>
-                        <?php
-                    }
-                    ?>
+                    <fieldset>
+
+                    <p>
+                        <label for="nama">Nama: </label>
+                        <input type="text" name="nama" placeholder="Nama Obat" />
+                    </p>
+                    <p>
+                        <label for="jenis">Jenis: </label>
+                        <input type="text" name="jenis" placeholder="Jenis Obat" />
+                    </p>
+                    <p>
+                        <label for="tanggal masuk">Tanggal Masuk: </label>
+                        <input type="date" name="dateTo" value="<?php echo date('Y-m-d'); ?>" />
+                    </p>
+                    <p>
+                        <label for="tanggal masuk">Tanggal Kadaluarsa: </label>
+                        <input type="date" name="dateTo" value="<?php echo date('Y-m-d'); ?>" />
+                    </p>
+                    <p>
+                        <label for="tanggal masuk">Jumlah: </label>
+                        <input type="text" name="jumlah"  placeholder="Jenis Obat" />
+                    </p>
+                    <p>
+                        <label for="tanggal masuk">Harga Satuan: </label>
+                        <input type="text" name="harga"  placeholder="Harga Obat" />
+                    </p>
+                    <p>
+                        <input type="submit" value="tambah" name="tambah" />
+                    </p>
+
+                    </fieldset>
 
                     </form>
                 </div>
